@@ -16,8 +16,23 @@ describe("Dockingstation", () => {
     expect(dockingstation.bikesAvailable()).toEqual(0);
   });
 
+  it("can release a bike", () => {
+    for (let i = 0; i < 5; i++) {
+      dockingstation.dock(bike);
+    }
+    dockingstation.releaseBike();
+    expect(dockingstation.bikesAvailable()).toEqual(4);
+  });
+
   it("can dock a bike at the docking station", () => {
     dockingstation.dock(bike);
     expect(dockingstation.bikesAvailable()).toEqual(1);
+  });
+
+  it("will let you see all the available bikes in the docking station", () => {
+    bike = new Bike();
+    dockingstation.dock(bike);
+    expect(dockingstation.viewAvailableBikes()).toEqual([bike]);
+    console.log(dockingstation);
   });
 });

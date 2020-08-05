@@ -1,10 +1,14 @@
 "use strict";
 
 class Dockingstation {
-  // stationcapacity = 20
-  constructor() {
-    // this.stationcapacity = stationcapacity;
+  // const defaultCapacity = 20;
+  constructor(stationcapacity = 20) {
+    this.stationcapacity = stationcapacity;
     this.bikesstored = [];
+  }
+
+  releaseBike() {
+    this.bikesstored.shift();
   }
 
   dock(bike) {
@@ -13,5 +17,12 @@ class Dockingstation {
 
   bikesAvailable() {
     return this.bikesstored.length;
+  }
+
+  // I want to see a bike that has been docked
+  viewAvailableBikes() {
+    this.bikesstored.forEach((i) => {
+      console.log(i);
+    });
   }
 }
