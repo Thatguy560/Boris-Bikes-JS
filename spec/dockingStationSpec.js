@@ -35,4 +35,14 @@ describe("Dockingstation", () => {
     expect(dockingstation.viewAvailableBikes()).toEqual([bike]);
     console.log(dockingstation);
   });
+
+  it("will raise an error if asked to dock a bike when overcapacity", () => {
+    for (let i = 0; i < dockingstation.defaultCapacity; i++) {
+      dockingstation.dock(bike);
+      console.log(dockingstation.bikesAvailable());
+    }
+    expect(() => {
+      dockingstation.dock(bike);
+    }).toThrowError("Can't dock bike, station is at max capacity.");
+  });
 });
