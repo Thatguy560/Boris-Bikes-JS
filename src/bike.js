@@ -4,10 +4,12 @@ class Bike {
   constructor() {
     this.working = true;
   }
+
   working() {
-    return working;
+    return this.working;
   }
+
   reportBroken() {
-    working = false;
+    return (this.working = false);
   }
 }

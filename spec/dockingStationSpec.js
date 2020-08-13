@@ -1,6 +1,6 @@
 "use strict";
 
-describe("Dockingstation", () => {
+describe("DockingStation", () => {
   let dockingstation;
   let bike;
   let brokenbike;
@@ -9,7 +9,7 @@ describe("Dockingstation", () => {
     bike = jasmine.createSpy("bike");
     bike = jasmine.createSpyObj("bike", ["working"]);
     // brokenbike.working.and.returnValue(false);
-    dockingstation = new Dockingstation();
+    dockingstation = new DockingStation();
   });
 
   it("has no bikes by default", () => {
@@ -29,20 +29,28 @@ describe("Dockingstation", () => {
     expect(dockingstation.bikesAvailable()).toEqual(1);
   });
 
+  // Doesn't currently work
   it("will let you see all the available bikes in the docking station", () => {
     bike = new Bike();
     dockingstation.dock(bike);
-    expect(dockingstation.viewAvailableBikes()).toEqual([bike]);
-    console.log(dockingstation);
+    expect(dockingstation.viewAvailableBikes()).toEqual[
+      Bike({ working: true })
+    ];
+    // console.log(dockingstation);
   });
 
   it("will raise an error if asked to dock a bike when overcapacity", () => {
     for (let i = 0; i < dockingstation.defaultCapacity; i++) {
       dockingstation.dock(bike);
-      console.log(dockingstation.bikesAvailable());
     }
     expect(() => {
       dockingstation.dock(bike);
     }).toThrowError("Can't dock bike, station is at max capacity.");
+  });
+
+  it("will raise an error if asked to release bikes and there are none available", () => {
+    expect(() => {
+      dockingstation.releaseBike();
+    }).toThrowError("No bikes available");
   });
 });
