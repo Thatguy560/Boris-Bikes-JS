@@ -6,10 +6,10 @@ describe("DockingStation", () => {
   let brokenbike;
 
   beforeEach(() => {
+    dockingstation = new DockingStation();
+    bike = new Bike();
     bike = jasmine.createSpy("bike");
     bike = jasmine.createSpyObj("bike", ["working"]);
-    // brokenbike.working.and.returnValue(false);
-    dockingstation = new DockingStation();
   });
 
   it("has no bikes by default", () => {
@@ -36,7 +36,6 @@ describe("DockingStation", () => {
     expect(dockingstation.viewAvailableBikes()).toEqual[
       Bike({ working: true })
     ];
-    // console.log(dockingstation);
   });
 
   it("will raise an error if asked to dock a bike when overcapacity", () => {

@@ -5,7 +5,7 @@ class Bike {
     this.working = true;
   }
 
-  working() {
+  bikeWorking() {
     return this.working;
   }
 
