@@ -40,7 +40,7 @@ describe("DockingStation", () => {
   });
 
   it("will raise an error if asked to dock a bike when overcapacity", () => {
-    for (let i = 0; i < dockingstation.defaultCapacity; i++) {
+    for (let i = 0; i < dockingstation.stationCapacity; i++) {
       dockingstation.dock(bike);
     }
     expect(() => {
