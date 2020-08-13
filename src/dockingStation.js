@@ -1,12 +1,11 @@
 "use strict";
 
-// const stationCapacity = 20;
+const defaultCapacity = 20;
 
 class DockingStation {
-  constructor(stationCapacity = 20) {
-    // this.stationCapacity = stationCapacity;
-    this.bikesStored = [];
+  constructor(stationCapacity = defaultCapacity) {
     this.stationCapacity = stationCapacity;
+    this.bikesStored = [];
   }
 
   releaseBike() {
