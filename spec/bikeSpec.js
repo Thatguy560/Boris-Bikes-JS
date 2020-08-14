@@ -2,6 +2,7 @@
 
 describe("Bike", () => {
   let bike;
+
   beforeEach(() => {
     bike = new Bike();
   });

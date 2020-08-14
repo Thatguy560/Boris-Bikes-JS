@@ -33,9 +33,13 @@ describe("DockingStation", () => {
   it("will let you see all the available bikes in the docking station", () => {
     bike = new Bike();
     dockingstation.dock(bike);
-    expect(dockingstation.viewAvailableBikes()).toEqual[
-      Bike({ working: true })
-    ];
+    expect(dockingstation.viewAvailableBikes()).toBe[Bike({ working: true })];
+  });
+
+  it("will raise an error if asked to release bikes and there are none available", () => {
+    expect(() => {
+      dockingstation.releaseBike();
+    }).toThrowError("No bikes available");
   });
 
   it("will raise an error if asked to dock a bike when overcapacity", () => {
@@ -47,9 +51,8 @@ describe("DockingStation", () => {
     }).toThrowError("Can't dock bike, station is at max capacity.");
   });
 
-  it("will raise an error if asked to release bikes and there are none available", () => {
-    expect(() => {
-      dockingstation.releaseBike();
-    }).toThrowError("No bikes available");
+  it("Has a variable capacity that can be specified", () => {
+    dockingstation = new DockingStation(40);
+    expect(dockingstation.stationCapacity).toEqual(40);
   });
 });
