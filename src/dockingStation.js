@@ -8,12 +8,26 @@ class DockingStation {
     this.bikesStored = [];
   }
 
+  bikes() {
+    return this.bikesStored;
+  }
+
   releaseBike() {
     if (this.empty()) {
       throw new Error("No bikes available");
     }
-    this.bikesStored.shift();
-    return this.bikesStored;
+    // this.bikesStored.shift();
+    // return this.bikesStored;
+
+    // @BikesStored.each_with_index { |bike, index| return @BikesStored.slice!(index) if bike.working? }
+    // this.bikesStored.forEach(bike, index => console.log(this.bikesStored.charAt(index))) if bikeWorking()
+    this.bikesStored.map((bike, index) =>
+      bike.bikeWorking()
+        ? bike.charAt(index)
+        : (function () {
+            throw new Error("No working bikes currently available");
+          })()
+    );
   }
 
   dock(bike) {

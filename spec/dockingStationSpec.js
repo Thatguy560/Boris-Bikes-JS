@@ -39,7 +39,9 @@ describe("DockingStation", () => {
     it("will let you see all the available bikes in the docking station", () => {
       bike = new Bike();
       dockingstation.dock(bike);
-      expect(dockingstation.viewAvailableBikes()).toBe[Bike({ working: true })];
+      expect(dockingstation.viewAvailableBikes()).toEqual[
+        Bike({ working: true })
+      ];
     });
 
     it("will raise an error if asked to release bikes and there are none available", () => {
@@ -61,7 +63,7 @@ describe("DockingStation", () => {
       dockingstation = new DockingStation(40);
       expect(dockingstation.stationCapacity).toEqual(40);
     });
-
+    // Doesn't currently work
     it("will raise an error if asked to release bikes and there are none available", () => {
       dockingstation.dock(brokenbike);
       expect(() => {
