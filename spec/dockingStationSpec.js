@@ -10,7 +10,7 @@ describe("DockingStation", () => {
     bike = new Bike();
     brokenbike = new Bike();
     bike = jasmine.createSpy("bike");
-    bike = jasmine.createSpyObj("bike", ["working"]);
+    bike = jasmine.createSpyObj("bike", ["bikeWorking", "reportBroken"]);
   });
 
   describe("For a broken bike", () => {
@@ -39,9 +39,8 @@ describe("DockingStation", () => {
     it("will let you see all the available bikes in the docking station", () => {
       bike = new Bike();
       dockingstation.dock(bike);
-      expect(dockingstation.viewAvailableBikes()).toEqual[
-        Bike({ working: true })
-      ];
+      console.log(dockingstation.bikesStored);
+      expect(dockingstation.viewAvailableBikes()).toEqual([bike]);
     });
 
     it("will raise an error if asked to release bikes and there are none available", () => {
@@ -64,7 +63,8 @@ describe("DockingStation", () => {
       expect(dockingstation.stationCapacity).toEqual(40);
     });
     // Doesn't currently work
-    it("will raise an error if asked to release bikes and there are none available", () => {
+    it("will raise an error if asked to release bikes and there are none working available", () => {
+      brokenbike.reportBroken();
       dockingstation.dock(brokenbike);
       expect(() => {
         dockingstation.releaseBike();

@@ -19,15 +19,17 @@ class DockingStation {
     // this.bikesStored.shift();
     // return this.bikesStored;
 
-    // @BikesStored.each_with_index { |bike, index| return @BikesStored.slice!(index) if bike.working? }
+    // // @BikesStored.each_with_index { |bike, index| return @BikesStored.slice!(index) if bike.working? }
+
     // this.bikesStored.forEach(bike, index => console.log(this.bikesStored.charAt(index))) if bikeWorking()
-    this.bikesStored.map((bike, index) =>
-      bike.bikeWorking()
-        ? bike.charAt(index)
-        : (function () {
-            throw new Error("No working bikes currently available");
-          })()
-    );
+    this.bikesStored.map((bike, index) => {
+      if (bike.bikeWorking()) {
+        // return bike;
+        this.bikesStored.shift();
+        return this.bikesStored;
+      }
+    });
+    throw new Error("No working bikes currently available");
   }
 
   dock(bike) {
