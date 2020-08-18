@@ -16,7 +16,7 @@ class DockingStation {
     if (this.empty()) {
       throw new Error("No bikes available");
     }
-    // // @BikesStored.each_with_index { |bike, index| return @BikesStored.slice!(index) if bike.working? }
+    // @BikesStored.each_with_index { |bike, index| return @BikesStored.slice!(index) if bike.working? }
 
     this.bikesStored.map((bike, index) => {
       if (bike.bikeWorking()) {

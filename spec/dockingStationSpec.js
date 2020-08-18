@@ -25,7 +25,7 @@ describe("DockingStation", () => {
       it("has no bikes by default", () => {
         expect(dockingstation.bikesAvailable()).toEqual(0);
       });
-
+      // Won't release bikes even when working
       it("can release a bike", () => {
         for (let i = 0; i < 5; i++) {
           dockingstation.dock(bike);
@@ -71,7 +71,7 @@ describe("DockingStation", () => {
         expect(dockingstation.stationCapacity).toEqual(40);
       });
 
-      // Doesn't currently work (does not but releasing bikes doesn't work)
+      // Works now but releasing bikes method won't work
       it("will raise an error if asked to release bikes and there are none working available", () => {
         brokenbike.reportBroken();
         dockingstation.dock(brokenbike);
