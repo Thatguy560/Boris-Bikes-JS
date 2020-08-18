@@ -41,7 +41,7 @@ class DockingStation {
   bikesAvailable() {
     return this.bikesStored.length;
   }
-  // I want to see a bike that has been docked (Not done yet)
+
   viewAvailableBikes() {
     this.bikesStored.forEach((i) => {
       console.log(i);
