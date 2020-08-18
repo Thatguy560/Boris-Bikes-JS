@@ -39,12 +39,16 @@ describe("DockingStation", () => {
         expect(dockingstation.bikesAvailable()).toEqual(1);
       });
 
-      // Doesn't currently work
+      // Doesn't currently work with viewAvailableBikes cannot be invoked without 'new'
       it("will let you see all the available bikes in the docking station", () => {
         bike = new Bike();
+        bike = new Bike();
         dockingstation.dock(bike);
-        console.log(dockingstation.bikesStored);
-        expect(dockingstation.viewAvailableBikes()).toEqual([bike]);
+        dockingstation.dock(bike);
+        expect(dockingstation.bikesStored).toEqual([bike, bike]);
+        // expect(dockingstation.viewAvailableBikes()).toBe[
+        //   (Bike({ working: true }), Bike({ working: true }))
+        // ];
       });
 
       it("will raise an error if asked to release bikes and there are none available", () => {
