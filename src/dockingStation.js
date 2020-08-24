@@ -30,7 +30,7 @@ class DockingStation {
     if (!isBikeReleased) {
       throw new Error("No working bikes currently available");
     }
-    return bikeToBeReturned;
+    return bikeToBeReturned; // shows you the bike you're releasing
   }
 
   dock(bike) {
