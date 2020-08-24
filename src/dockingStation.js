@@ -1,5 +1,5 @@
 "use strict";
-const Bike = require("./bike");
+
 const defaultCapacity = 20;
 
 class DockingStation {
