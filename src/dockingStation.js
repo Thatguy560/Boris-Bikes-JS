@@ -31,7 +31,6 @@ class DockingStation {
       throw new Error("No working bikes currently available");
     }
     return bikeToBeReturned;
-    console.log(bikeToBeReturned);
   }
 
   dock(bike) {

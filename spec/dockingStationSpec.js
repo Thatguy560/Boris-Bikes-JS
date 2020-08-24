@@ -33,7 +33,6 @@ describe("DockingStation", () => {
     it("has no bikes by default", () => {
       expect(dockingstation.bikesAvailable()).toEqual(0);
     });
-    // Won't release bikes even when working
 
     it("can dock a bike at the docking station", () => {
       dockingstation.dock(bike);
