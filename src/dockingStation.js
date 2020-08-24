@@ -16,25 +16,22 @@ class DockingStation {
     if (this.empty()) {
       throw new Error("No bikes available");
     }
-    let isBikeReleased = false
-    let bikeToBeReturned = null
-    // @BikesStored.each_with_index { |bike, index| return @BikesStored.slice!(index) if bike.working? }
+    let isBikeReleased = false;
+    let bikeToBeReturned = null;
 
     this.bikesStored.some((bike, index) => {
       if (bike.bikeWorking()) {
-        // let index = this.bikesStored.indexOf(bike);
         this.bikesStored.splice(index, 1); // remove 1 items at position index.
-        isBikeReleased = true
-        bikeToBeReturned = bike
-        return bike
-        // this.bikesStored.shift();
-        // return this.bikesStored;
+        isBikeReleased = true;
+        bikeToBeReturned = bike;
+        return bike;
       }
     });
-    if(!isBikeReleased){
-
-    throw new Error("No working bikes currently available")}
-    return bikeToBeReturned
+    if (!isBikeReleased) {
+      throw new Error("No working bikes currently available");
+    }
+    return bikeToBeReturned;
+    console.log(bikeToBeReturned);
   }
 
   dock(bike) {
