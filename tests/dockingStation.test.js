@@ -1,4 +1,6 @@
 "use strict";
+const DockingStation = require("../src/dockingStation");
+const Bike = require("../src/bike");
 
 describe("DockingStation", () => {
   let dockingstation;

@@ -1,5 +1,5 @@
 "use strict";
-
+const Bike = require("./bike");
 const defaultCapacity = 20;
 
 class DockingStation {
@@ -60,3 +60,5 @@ class DockingStation {
     return this.bikesAvailable() === this.stationCapacity;
   }
 }
+
+module.exports = DockingStation;

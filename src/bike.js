@@ -13,3 +13,5 @@ class Bike {
     return (this.working = false);
   }
 }
+
+module.exports = Bike;

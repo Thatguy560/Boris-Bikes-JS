@@ -1,4 +1,5 @@
 "use strict";
+const Bike = require("../src/bike");
 
 describe("Bike", () => {
   let bike;
