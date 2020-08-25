@@ -45,19 +45,36 @@ git clone https://github.com/Thatguy560/Boris-Bikes-JS.git
 cd Boris-Bikes-JS
 npm install
 open index.html
+```
+
 then open the console and create a docking station and bike using:
 
+\$ dockingstation = new DockingStation();
 
-```
+\$ Create some new bikes using bike = new Bike();
+
+\$ you can report the status of these bikes from working to broken by typing in bike.reportBroken() for example.
+
+\$ You can dock a bike using dockingstation.dock(bike1) or if you wanted to dock the 2nd bike for instance dockingstation.dock(bike2)
+
+\$ If you want to release a bike, type in dockingstation.releaseBike()
+
+Some personal methods I've added
+
+\$ If you want to count the number of bikes in the docking station type in dockingstation.bikesAvailable()
+
+\$ If you want to see a list of bikes that are docked type in dockingstation.viewAvailableBikes()
+
+![Screenshot]()
 
 ## Testing the repo:
 
 ```
 git clone https://github.com/Thatguy560/Boris-Bikes-JS.git
 cd Boris-Bikes-JS
-npm test
+type 'npm test' to run tests
 ```
 
-![Screenshot](Assets/Screenshot 2020-08-25 at 19.09.24.png)
-
 I used Jest as a testing Framework
+
+![Screenshot](https://raw.githubusercontent.com/Thatguy560/Boris-Bikes-JS/master/Assets/Screenshot%202020-08-25%20at%2019.09.24.png)
