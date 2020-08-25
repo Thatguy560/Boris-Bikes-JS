@@ -65,7 +65,7 @@ Some personal methods I've added
 
 \$ If you want to see a list of bikes that are docked type in dockingstation.viewAvailableBikes()
 
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/Thatguy560/Boris-Bikes-JS/master/Assets/Screenshot%202020-08-25%20at%2019.56.17.png)
 
 ## Testing the repo:
 
